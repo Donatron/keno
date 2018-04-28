@@ -162,6 +162,7 @@ body {
 .numbers {
   position: absolute;
   top: 0;
+  left: 0;
   width: 100%;
 }
 
@@ -198,6 +199,7 @@ body {
        border-radius: 5px;
 
   background-color: #DBE4ED;
+  visibility: hidden;
 }
 
 .number-drawn {
