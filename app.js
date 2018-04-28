@@ -156,6 +156,11 @@ function playGame() {
   $('#heads').html(heads);
   $('#tails').html(tails);
 
+  // Hide drawn number
+  setTimeout(function() {
+    $('.number-drawn').hide();
+  }, 3000);
+
 }
 
 function startGame() {
@@ -165,6 +170,6 @@ function startGame() {
       } else if (numbersThisGame => 20) {
         $('.number-drawn').hide();
       }
-    },3500);
+    },4500);
 }
 startGame();
