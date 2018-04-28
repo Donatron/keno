@@ -54,6 +54,39 @@ function removeTileOverlay(index) {
   thisTile.html(index);
 }
 
+// Create function for declaring CSS colours based on drawn number
+function colorTiles(index) {
+  switch(true) {
+    case (index < 10):
+      return '#BE2431'
+      break;
+    case (index>=10 && index<20):
+      return '#0D6BB3'
+      break;
+    case (index>=20 && index<30):
+      return '#04863C'
+      break;
+    case (index>=30 && index<40):
+      return '#FAA330'
+      break;
+    case (index>=40 && index<50):
+      return '#A93195'
+      break;
+    case (index>=50 && index<60):
+      return 'orange'
+      break;
+    case (index>=60 && index<70):
+      return '#90ACBD'
+      break;
+    case (index>=70 && index<numberOfTiles):
+      return '#513397'
+      break;
+  }
+}
+
+// var color = colorTiles(79);
+// $('.overlay').css('background-color', color);
+
 // Add background colour to tiles
 function addTileColor() {
 
@@ -148,7 +181,7 @@ function playGame() {
   console.log(numbersThisGame);
 
   // Show drawn number
-  $('.number-drawn').html(currentNumber).show();
+  $('.number-drawn').html(currentNumber).css('background-color', colorTiles(currentNumber - 1)).show();
 
   // Update Heads and Tails counters
   $('#heads').html(heads);
