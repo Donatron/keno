@@ -73,7 +73,7 @@ function colorTiles(index) {
       return '#A93195'
       break;
     case (index>=50 && index<60):
-      return 'orange'
+      return '#F04F21'
       break;
     case (index>=60 && index<70):
       return '#90ACBD'
@@ -84,45 +84,14 @@ function colorTiles(index) {
   }
 }
 
-// var color = colorTiles(79);
-// $('.overlay').css('background-color', color);
-
 // Add background colour to tiles
 function addTileColor() {
 
   for (var i=0; i<numberOfTiles; i++) {
     var tileAtIndex = $('.tile').eq(i);
-
-    switch(true) {
-      case (i < 10):
-        tileAtIndex.css('background-color', '#BE2431')
-        break;
-      case (i>=10 && i<20):
-        tileAtIndex.css('background-color', '#0D6BB3')
-        break;
-      case (i>=20 && i<30):
-        tileAtIndex.css('background-color', '#04863C')
-        break;
-      case (i>=30 && i<40):
-        tileAtIndex.css('background-color', '#FAA330')
-        break;
-      case (i>=40 && i<50):
-        tileAtIndex.css('background-color', '#A93195')
-        break;
-      case (i>=50 && i<60):
-        tileAtIndex.css('background-color', 'orange')
-        break;
-      case (i>=60 && i<70):
-        tileAtIndex.css('background-color', '#90ACBD')
-        break;
-      case (i>=70 && i<numberOfTiles):
-        tileAtIndex.css('background-color', '#513397')
-        break;
-
-      default:
-      break;
-    }
+    tileAtIndex.css('background-color', colorTiles(i));
   }
+
 }
 addTileColor();
 
