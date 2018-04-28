@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Keno</title>
+
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="header">
+    <img src="keno-logo.png" alt="image of keno logo" class="logo">
+    <div class="scoreboard">
+      <div class="heads-tails">
+        <h4>Heads</h4>
+        <div class="tally" id="heads"></div>
+      </div>
+      <div class="heads-tails">
+        <h4>Tails</h4>
+        <div class="tally" id="tails"></div>
+      </div>
+    </div>
+  </div> <!-- End Header -->
+  <div class="keno">
+    <div class=numbers></div>
+    <div class="number-drawn"></div>
+  </div> <!-- Container for displaying numbers -->
+  <script src="app.js"></script>
+</body>
+</html>
