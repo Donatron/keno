@@ -60,6 +60,7 @@ header {
 .heads-title {
   grid-area: heads-title;
   background: -webkit-gradient(linear,left top, right top,color-stop(0, #e6007e),to(#a81815));
+  background: -webkit-linear-gradient(left,#e6007e 0,#a81815 100%);
   background: -moz-linear-gradient(left,#e6007e 0,#a81815 100%);
   background: -o-linear-gradient(left,#e6007e 0,#a81815 100%);
   background: linear-gradient(to right,#e6007e 0,#a81815 100%);
@@ -74,6 +75,7 @@ header {
 .tails-title {
   grid-area: tails-title;
   background: -webkit-gradient(linear,left top, right top,color-stop(0, #009fe3),to(#522583));
+  background: -webkit-linear-gradient(left,#009fe3 0,#522583 100%);
   background: -moz-linear-gradient(left,#009fe3 0,#522583 100%);
   background: -o-linear-gradient(left,#009fe3 0,#522583 100%);
   background: linear-gradient(to right,#009fe3 0,#522583 100%);
@@ -177,28 +179,32 @@ MAIN STYLES
 
 #heads {
   background: -webkit-gradient(linear,left top, right top,color-stop(0, #009fe3),to(#522583));
+  background: -webkit-linear-gradient(left,#009fe3 0,#522583 100%);
   background: -moz-linear-gradient(left,#009fe3 0,#522583 100%);
   background: -o-linear-gradient(left,#009fe3 0,#522583 100%);
   background: linear-gradient(to right,#009fe3 0,#522583 100%);
 }
 
 #tails,
-.message .timer {
+.message .timer,
+.message .results {
   background: -webkit-gradient(linear,left top, right top,color-stop(0, #e6007e),to(#a81815));
+  background: -webkit-linear-gradient(left,#e6007e 0,#a81815 100%);
   background: -moz-linear-gradient(left,#e6007e 0,#a81815 100%);
   background: -o-linear-gradient(left,#e6007e 0,#a81815 100%);
   background: linear-gradient(to right,#e6007e 0,#a81815 100%);
 }
 
 .tally,
-.timer {
+.timer,
+.results {
   height: 50px;
   width: 70px;
+  font-size: 32px;
   font-size: 2rem;
   color: white;
   text-align: center;
   line-height: 50px;
-  background-color: red;
   -moz-border-radius: 8px;
        border-radius: 8px;
   display: -webkit-box;
@@ -219,7 +225,8 @@ MAIN STYLES
       align-content: flex-end;
 }
 
-.timer {
+.timer,
+.results {
   margin-left: auto;
   margin-right: auto;
 }
@@ -283,6 +290,7 @@ MAIN STYLES
   border: solid 1px white;
   -moz-border-radius: 8px;
        border-radius: 8px;
+  font-size: 48px;
   font-size: 3rem;
   display: -webkit-box;
   display: -moz-box;

@@ -6,26 +6,38 @@ var game;
 var heads = 0;
 var tails = 0;
 var timeToGameStart = 10;
-var gameNumber = 1;
+var gameNumber = 0;
 var gameInProgress = false;
-
 
 // Create function for displaying next game countdown timer
 function countdown() {
-  $('.timer').html(timeToGameStart);
+
+  // Increment Game Number
+  gameNumber += 1;
+
+  // Create Variables for in-game and between-game messages
+  var countdownMessage = timeToGameStart;
+  var getReadyMessage = '<h1>Let\'s Get Ready To Play!</h1>';
+  var gamePlayingMessage = '<h3>Now Drawing Game Number</h3>';
+  gamePlayingMessage += '<div class="timer">'
+  gamePlayingMessage += gameNumber;
+  gamePlayingMessage += '</div>';
+
+  $('.timer').html(countdownMessage);
 
   var timer = setInterval(function() {
     if (timeToGameStart > 1) {
       timeToGameStart -= 1;
-      console.log(timeToGameStart);
       $('.timer').html(timeToGameStart);
     } else {
-      $('.message').html('<h1>Let\'s Get Ready To Play!');
+      $('.message').html(getReadyMessage);
       clearInterval(timer);
       gameInProgress = true;
       setTimeout(function() {
-        $('.message').html('<h3>Now Drawing Game Number</h3><div class="timer">' + gameNumber + '</div>');
+        $('.message').html(gamePlayingMessage);
       }, 3000);
+      startGame();
+
     }
   }, 1000);
 
@@ -191,8 +203,6 @@ function playGame() {
   // Generate random number until 20 have been generated
   var currentNumber = drawNumber();
   checkNumberDrawn(currentNumber, drawnNumbers);
-  console.log(currentNumber);
-  console.log(numbersThisGame);
 
   // Show drawn number
   $('.number-drawn').html(currentNumber).css('background', colorTiles(currentNumber - 1)).show();
@@ -214,7 +224,16 @@ function startGame() {
         playGame();
       } else if (numbersThisGame => 20) {
         $('.number-drawn').hide();
+
+        // Create end of game message
+        var gameResultsMessage = '<h3>Results For Game Number</h3>';
+        gameResultsMessage += '<div class="results">';
+        gameResultsMessage += gameNumber;
+        gameResultsMessage += '</div>';
+        $('.message').html(gameResultsMessage);
+
+        // Reset Game in Progress Message
+        gameInProgress = false;
       }
     },4500);
 }
-startGame();

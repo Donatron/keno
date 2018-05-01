@@ -88,6 +88,7 @@ body {
 .tally {
   height: 50px;
   width: 70px;
+  font-size: 32px;
   font-size: 2rem;
   color: white;
   text-align: center;
@@ -174,6 +175,7 @@ body {
   border: solid 1px white;
   -moz-border-radius: 8px;
        border-radius: 8px;
+  font-size: 48px;
   font-size: 3rem;
   display: -webkit-box;
   display: -moz-box;
