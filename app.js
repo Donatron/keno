@@ -32,9 +32,9 @@ function countdown() {
 }
 
 // Check if game in progress before starting timer
-// if (!gameInProgress) {
-//   countdown();
-// }
+if (!gameInProgress) {
+  countdown();
+}
 
 // Create Keno rows
 function createKenoGrid() {
@@ -88,7 +88,7 @@ function addTileData() {
     thisTile.html(i + 1);
 
     // Place overlays over all tiles
-    // thisTile.prepend('<div class="overlay"></div>');
+    thisTile.prepend('<div class="overlay"></div>');
   }
 }
 addTileData();
@@ -140,81 +140,81 @@ function addTileColor() {
 }
 addTileColor();
 
-// // Create initial arrays of numbers 1 to 80 and drawn numbers
-// var numbersArray = [];
-// var drawnNumbers = [];
-//
-// function createNumbers() {
-//   for (var i=1; i<=80; i++) {
-//     numbersArray.push(i);
-//   }
-// }
-// createNumbers();
-//
-// // Hide Number Drawn
-// $('.number-drawn').hide();
-//
-// function drawNumber() {
-//   var length = numbersArray.length;
-//   var numberDrawn = Math.floor(Math.random() * length) + 1;
-//   return numberDrawn;
-// }
-//
-// // Create function for checking if drawn number already drawn
-// function checkNumberDrawn(numberDrawn, numbersAlreadyDrawn) {
-//
-//   var count = numbersAlreadyDrawn.length;
-//
-//   for (var i=0; i<count; i++)
-//   if (numbersAlreadyDrawn[i] === numberDrawn) {
-//     return console.log('That\'s already been drawn');
-//   }
-//   numbersAlreadyDrawn.push(numberDrawn);
-//   removeTileOverlay(numberDrawn);
-//   numbersThisGame += 1;
-//   headsOrTails(numberDrawn);
-// }
-//
-// // Create function for tallying heads and tails count
-// function headsOrTails(number) {
-//   if (number <= 40) {
-//     heads += 1;
-//   } else {
-//     tails += 1;
-//   }
-// }
-//
-//
-// // Play Game
-// function playGame() {
-//
-//   // Generate random number until 20 have been generated
-//   var currentNumber = drawNumber();
-//   checkNumberDrawn(currentNumber, drawnNumbers);
-//   console.log(currentNumber);
-//   console.log(numbersThisGame);
-//
-//   // Show drawn number
-//   $('.number-drawn').html(currentNumber).css('background-color', colorTiles(currentNumber - 1)).show();
-//
-//   // Update Heads and Tails counters
-//   $('#heads').html(heads);
-//   $('#tails').html(tails);
-//
-//   // Hide drawn number
-//   setTimeout(function() {
-//     $('.number-drawn').hide();
-//   }, 3000);
-//
-// }
-//
-// function startGame() {
-//   game = setInterval(function() {
-//       if (numbersThisGame < 20) {
-//         playGame();
-//       } else if (numbersThisGame => 20) {
-//         $('.number-drawn').hide();
-//       }
-//     },4500);
-// }
-// startGame();
+// Create initial arrays of numbers 1 to 80 and drawn numbers
+var numbersArray = [];
+var drawnNumbers = [];
+
+function createNumbers() {
+  for (var i=1; i<=80; i++) {
+    numbersArray.push(i);
+  }
+}
+createNumbers();
+
+// Hide Number Drawn
+$('.number-drawn').hide();
+
+function drawNumber() {
+  var length = numbersArray.length;
+  var numberDrawn = Math.floor(Math.random() * length) + 1;
+  return numberDrawn;
+}
+
+// Create function for checking if drawn number already drawn
+function checkNumberDrawn(numberDrawn, numbersAlreadyDrawn) {
+
+  var count = numbersAlreadyDrawn.length;
+
+  for (var i=0; i<count; i++)
+  if (numbersAlreadyDrawn[i] === numberDrawn) {
+    return console.log('That\'s already been drawn');
+  }
+  numbersAlreadyDrawn.push(numberDrawn);
+  removeTileOverlay(numberDrawn);
+  numbersThisGame += 1;
+  headsOrTails(numberDrawn);
+}
+
+// Create function for tallying heads and tails count
+function headsOrTails(number) {
+  if (number <= 40) {
+    heads += 1;
+  } else {
+    tails += 1;
+  }
+}
+
+
+// Play Game
+function playGame() {
+
+  // Generate random number until 20 have been generated
+  var currentNumber = drawNumber();
+  checkNumberDrawn(currentNumber, drawnNumbers);
+  console.log(currentNumber);
+  console.log(numbersThisGame);
+
+  // Show drawn number
+  $('.number-drawn').html(currentNumber).css('background', colorTiles(currentNumber - 1)).show();
+
+  // Update Heads and Tails counters
+  $('#heads').html(heads);
+  $('#tails').html(tails);
+
+  // Hide drawn number
+  setTimeout(function() {
+    $('.number-drawn').hide();
+  }, 3000);
+
+}
+
+function startGame() {
+  game = setInterval(function() {
+      if (numbersThisGame < 20) {
+        playGame();
+      } else if (numbersThisGame => 20) {
+        $('.number-drawn').hide();
+      }
+    },4500);
+}
+startGame();

@@ -311,8 +311,8 @@ MAIN STYLES
 }
 
 .number-drawn {
-  height: 500px;
-  width: 500px;
+  height: 550px;
+  width: 550px;
   -moz-border-radius: 50%;
        border-radius: 50%;
   background-color: lightgrey;
@@ -324,8 +324,9 @@ MAIN STYLES
   z-index: 10;
   position: absolute;
   top: 120px;
-  /* margin-left: auto;
-  margin-right: auto; */
+  -webkit-box-shadow: 2px 4px 14px -1px rgba(0, 0, 0, .67);
+     -moz-box-shadow: 2px 4px 14px -1px rgba(0, 0, 0, .67);
+          box-shadow: 2px 4px 14px -1px rgba(0, 0, 0, .67);
 }
 
 footer h4,
