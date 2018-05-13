@@ -335,6 +335,20 @@ MAIN STYLES
   -webkit-box-shadow: 2px 4px 14px -1px rgba(0, 0, 0, .67);
      -moz-box-shadow: 2px 4px 14px -1px rgba(0, 0, 0, .67);
           box-shadow: 2px 4px 14px -1px rgba(0, 0, 0, .67);
+
+  display: -webkit-box;
+
+  display: -moz-box;
+
+  display: -ms-flexbox;
+
+  display: flex;
+  -webkit-box-pack: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
 }
 
 footer h4,

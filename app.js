@@ -68,7 +68,6 @@ function appendRowNumbers() {
 
   // Append row number to row classes
   var numberOfRows = $('.row').length;
-  console.log(numberOfRows);
 
   for (var i=1; i<=numberOfRows; i++) {
     var thisClass = 'row-' + i;
@@ -180,11 +179,13 @@ function checkNumberDrawn(numberDrawn, numbersAlreadyDrawn) {
   for (var i=0; i<count; i++)
   if (numbersAlreadyDrawn[i] === numberDrawn) {
     return console.log('That\'s already been drawn');
+    return false;
   }
   numbersAlreadyDrawn.push(numberDrawn);
   removeTileOverlay(numberDrawn);
   numbersThisGame += 1;
   headsOrTails(numberDrawn);
+  return true;
 }
 
 // Create function for tallying heads and tails count
@@ -202,10 +203,13 @@ function playGame() {
 
   // Generate random number until 20 have been generated
   var currentNumber = drawNumber();
-  checkNumberDrawn(currentNumber, drawnNumbers);
 
-  // Show drawn number
-  $('.number-drawn').html(currentNumber).css('background', colorTiles(currentNumber - 1)).show();
+  // If number drawn hasn't been drawn already, show number
+  if (checkNumberDrawn(currentNumber, drawnNumbers)) {
+
+    $('.number-drawn').html(currentNumber).css('background', colorTiles(currentNumber - 1)).show();
+
+  }
 
   // Update Heads and Tails counters
   $('#heads').html(heads);
@@ -220,6 +224,7 @@ function playGame() {
 
 function startGame() {
   game = setInterval(function() {
+
       if (numbersThisGame < 20) {
         playGame();
       } else if (numbersThisGame => 20) {
@@ -234,6 +239,8 @@ function startGame() {
 
         // Reset Game in Progress Message
         gameInProgress = false;
+        clearInterval(game);
       }
     },4500);
+
 }
