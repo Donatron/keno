@@ -23,6 +23,8 @@ body {
   font-family: sans-serif;
   font-weight: lighter;
   position: relative;
+  background-color: #5a6461;
+  background-color: rgba(90, 100, 97, .1);
 }
 
 .grid {
@@ -289,7 +291,7 @@ MAIN STYLES
   width: 80px;
   color: white;
   text-shadow: 2px 1px rgba(0, 0, 0, .2);
-  border: solid 1px white;
+  border: solid 1px #DBE4ED;
   -moz-border-radius: 8px;
        border-radius: 8px;
   font-size: 48px;
@@ -413,7 +415,7 @@ MEDIA QUERIES
     height: 350px;
     font-size: 300px;
   }
-  
+
 }
 
 @media screen and (max-width: 850px) {
