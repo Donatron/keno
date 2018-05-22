@@ -64,6 +64,7 @@ function createKenoGrid() {
 }
 createKenoGrid();
 
+// Append row numbers to row classes
 function appendRowNumbers() {
 
   // Append row number to row classes
@@ -240,7 +241,36 @@ function startGame() {
         // Reset Game in Progress Message
         gameInProgress = false;
         clearInterval(game);
+
+        // Restart game
+        setTimeout(function() {
+          resetGameVariables();
+          repeatGame();
+        }, 5000);
       }
     },4500);
+
+    function resetGameVariables() {
+      heads = 0;
+      tails = 0;
+      drawnNumbers = [];
+      numbersThisGame = 0;
+      timeToGameStart = 5;
+    }
+
+    function repeatGame() {
+
+      for (var i=0; i<80; i++) {
+        var tileAtIndex = $('.tile').eq(i);
+        if(tileAtIndex.children().length > 0) {
+        } else {
+          tileAtIndex.prepend('<div class="overlay"></div>');
+        }
+      }
+
+      countdown();
+      if (timeToGameStart === 0) {
+        startGame();}
+      }
 
 }
