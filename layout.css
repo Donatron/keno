@@ -70,6 +70,7 @@ header {
   background: linear-gradient(to right,#e6007e 0,#a81815 100%);
   -moz-border-radius: 8px;
        border-radius: 8px;
+  text-align: center;
 }
 
 .heads-container {
@@ -478,6 +479,37 @@ MEDIA QUERIES
     font-size: 260px;
     margin-left: auto;
     margin-right: auto;
+  }
+
+}
+
+@media screen and (max-width: 500px) {
+
+  .grid {
+    grid-template-columns: 25px 1fr;
+  }
+
+  .heads-title,
+  .tails-title {
+    height: 120px !important;
+  }
+
+  .rotate {
+    font-size: 16px;
+    font-size: 1rem;
+  }
+
+  .tile {
+    width: 25px;
+    height: 20px;
+    font-size: 1em;
+    line-height: 1em;
+  }
+
+  .number-drawn {
+    width: 250px;
+    height: 250px;
+    font-size: 220px;
   }
 
 }
