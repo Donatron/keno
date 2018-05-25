@@ -16,14 +16,17 @@ function countdown() {
   gameNumber += 1;
 
   // Create Variables for in-game and between-game messages
-  var countdownMessage = timeToGameStart;
+  var countdownMessage = '<h3>Next game starts in </h3>';
+  countdownMessage += '<div class="timer">';
+  countdownMessage += timeToGameStart;
+  countdownMessage += '</div>';
   var getReadyMessage = '<h1>Let\'s Get Ready To Play!</h1>';
   var gamePlayingMessage = '<h3>Now Drawing Game Number</h3>';
   gamePlayingMessage += '<div class="timer">'
   gamePlayingMessage += gameNumber;
   gamePlayingMessage += '</div>';
 
-  $('.timer').html(countdownMessage);
+  $('.message').html(countdownMessage);
 
   var timer = setInterval(function() {
     if (timeToGameStart > 1) {
@@ -228,7 +231,7 @@ function startGame() {
 
       if (numbersThisGame < 20) {
         playGame();
-      } else if (numbersThisGame => 20) {
+      } else if (numbersThisGame >= 20) {
         $('.number-drawn').hide();
 
         // Create end of game message
@@ -246,7 +249,7 @@ function startGame() {
         setTimeout(function() {
           resetGameVariables();
           repeatGame();
-        }, 5000);
+        }, 8000);
       }
     },4500);
 
@@ -255,7 +258,7 @@ function startGame() {
       tails = 0;
       drawnNumbers = [];
       numbersThisGame = 0;
-      timeToGameStart = 5;
+      timeToGameStart = 10;
     }
 
     function repeatGame() {
@@ -270,7 +273,10 @@ function startGame() {
 
       countdown();
       if (timeToGameStart === 0) {
-        startGame();}
+        startGame();
       }
+
+    }
+
 
 }
