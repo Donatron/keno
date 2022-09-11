@@ -1,12 +1,25 @@
-// class Keno
+class Keno {
+  constructor() {
+    this.numbersDrawn = 0
+    this.headsCount = 0;
+    this.tailsCount = 0
+    this.timeToGameStart = 180
+    this.isGameInProgress = false
+  }
 
-// PROPS
-// numbersDrawn
-// gameNumber 
-// headsCount
-// tailsCount
-// timeToGameStart
-// isGameInProgress
+  createGameGrid() {
+    const gridObj = {
+      heads: [],
+      tails: []
+    }
+
+    for (let i=0; i<=7; i++) {
+      const row = `<div id="row-${i+1}" class="row"></div>`
+      i <= 3 ? gridObj.heads.push(row) : gridObj.tails.push(row)
+    }
+    return gridObj
+  }
+}
 
 // METHODS
 // Countdown
@@ -14,17 +27,7 @@
 // appendRowNumbers
 // addTiles
 // addTileData
+// incrementNumbersDrawn
+// resetKeno
 
-// TILE CLASS
-// METHODS
-// removeTileOverlay
-// getTileColor
-
-// GAME CLASS
-// METHODS
-// getGameNumbers
-// drawNumber
-// checkNumberDrawn
-// incrementHeadsTails
-// playGame
-// startGame
+module.exports = Keno
